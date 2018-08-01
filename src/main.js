@@ -4,7 +4,7 @@ import { checkVertArr } from './square';
 import { checkHorzNumb } from './square';
 import { checkHorzArr } from './square';
 import { checkGrid } from './square';
-//import $ from 'jquery';
+
 //import 'bootstrap';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';

@@ -1,3 +1,5 @@
+
+
 var arr = [[5,3,4,6,7,8,9,1,2],
   [6,7,2,1,9,5,3,4,8],
   [1,9,8,3,4,2,5,6,7],
@@ -112,7 +114,6 @@ export function checkVertArr() {
       }
     }
   }
-
   return "GOOD, no column is the same";
 }
 
@@ -123,11 +124,10 @@ export function checkHorzNumb() {
       return a - b;
     });
     if (testLine.join("") !== testArr.join("")) {
-   document.getElementById("test1").innerHTML = "BAD, two rows are the same";
+   document.getElementById("test1").innerHTML = "NOT GOOD, a row includes a number more that once";
       return "NOT GOOD, a row includes a number more that once";
     }
   }
-
   return "GOOD, no row includes a number more that once";
 }
 
@@ -136,11 +136,10 @@ export function checkHorzArr() {
   for (var i = 0; i < arr.length; i++) {
     for (var a = 0; a < arr.length; a ++) {
       if (i !== a && arr[i].join("") === arr[a].join("")) {
-      document.getElementById("test1").innerHTML = "BAD, two rows are the same";
+      document.getElementById("test").innerHTML = "BAD, two rows are the same";
       return "BAD, two rows are the same";
       }
       }
     }
-
     return "GOOD, no rows are the same";
   }

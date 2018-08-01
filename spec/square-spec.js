@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import { checkHorzArr } from './../src/square.js';
 import { checkHorzNumb } from './../src/square.js';
 import { checkVertArr } from './../src/square.js';
@@ -21,7 +22,4 @@ describe('square', function() {
   it('should test if a columns contains 1 -9', function() {
   expect(checkVertNumb()).toEqual("NOT GOOD, a column includes a number more that once");
   });
-
-
-
 });
