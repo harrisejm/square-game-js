@@ -9,7 +9,7 @@ var arr = [[5,3,4,6,7,8,9,1,2],
 //[7,1,3,9,2,4,8,5,6],
   [9,6,1,5,3,7,2,8,4],
   [2,8,7,4,1,9,6,3,5],
-  [2,4,5,2,8,6,1,7,9]];
+  [2,2,5,2,8,6,1,7,9]];
 
 var testArr = [1,2,3,4,5,6,7,8,9];
 
@@ -82,20 +82,25 @@ export function checkGrid() {
 }
 
 
-
-
 //////
 
 export function checkVertNumb(){
+
   for (var b = 0; b < arr2.length; b++) {
     var testLine = arr2[b].slice().sort(function(a,b) {
       return a - b;
     });
+
     if (testLine.join("") !== testArr.join("")) {
       document.getElementById("test2").innerHTML = "NOT GOOD, a column includes a number more that once";
+      return "NOT GOOD, a column includes a number more that once";
+
     }
   }
+
+  return "GOOD no column includes a number more than once";
 }
+
 
 //checks if two arrays are the same
 export function checkVertArr() {
@@ -103,9 +108,12 @@ export function checkVertArr() {
     for (var a = 0; a < arr2.length; a ++) {
       if (i !== a && arr2[i].join("") === arr2[a].join("")) {
         document.getElementById("test3").innerHTML = "BAD, two column are the same";
+        return "BAD, two column are the same";
       }
     }
   }
+
+  return "GOOD, no column is the same";
 }
 
 //checks if each array has 1- 9
@@ -115,9 +123,12 @@ export function checkHorzNumb() {
       return a - b;
     });
     if (testLine.join("") !== testArr.join("")) {
-      document.getElementById("test").innerHTML = "NOT GOOD, a row includes a number more that once";
+   document.getElementById("test1").innerHTML = "BAD, two rows are the same";
+      return "NOT GOOD, a row includes a number more that once";
     }
   }
+
+  return "GOOD, no row includes a number more that once";
 }
 
 //checks if two arrays are the same
@@ -125,12 +136,11 @@ export function checkHorzArr() {
   for (var i = 0; i < arr.length; i++) {
     for (var a = 0; a < arr.length; a ++) {
       if (i !== a && arr[i].join("") === arr[a].join("")) {
-        document.getElementById("test1").innerHTML = "BAD, two rows are the same";
-        return "hello";
-
-      } else {
-        return "no";
+      document.getElementById("test1").innerHTML = "BAD, two rows are the same";
+      return "BAD, two rows are the same";
       }
       }
     }
+
+    return "GOOD, no rows are the same";
   }
