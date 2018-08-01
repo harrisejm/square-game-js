@@ -1,0 +1,26 @@
+{
+  "name": "square-game-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "su.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harrisejm/square-game-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harrisejm/square-game-js/issues"
+  },
+  "homepage": "https://github.com/harrisejm/square-game-js#readme",
+  "devDependencies": {
+    "css-loader": "^0.28.10",
+    "style-loader": "^0.20.2",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.9"
+  }
+}
