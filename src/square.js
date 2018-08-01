@@ -39,7 +39,7 @@ for (var x = 0; x < vertArr.length; x++) {
 var tempArr2 = [];
 for (var q = 0; q < arr.length; q++) {
   for (var y = 0; y < arr[0].length; y++) {
-    if (a%3 === 0) {
+    if (y%3 === 0) {
       tempArr2.push(" ");
       tempArr2.push(arr[q][y]);
     } else {
@@ -50,8 +50,8 @@ for (var q = 0; q < arr.length; q++) {
 var testSmall = tempArr2.join("").trim().split(" ");
 var arr3 = [];
 
-for (var w = 0; w < testSmall.length; w++) {
-  arr3.push(testSmall[w].split(""));
+for (var r = 0; r < testSmall.length; r++) {
+  arr3.push(testSmall[r].split(""));
 }
 var topRight = arr3[0].concat(arr3[3], arr3[6]);
 var topMiddle = arr3[1].concat(arr3[4], arr3[7]);
@@ -126,7 +126,11 @@ export function checkHorzArr() {
     for (var a = 0; a < arr.length; a ++) {
       if (i !== a && arr[i].join("") === arr[a].join("")) {
         document.getElementById("test1").innerHTML = "BAD, two rows are the same";
+        return "hello";
+
+      } else {
+        return "no";
+      }
       }
     }
   }
-}
