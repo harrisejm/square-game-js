@@ -66,7 +66,18 @@ var bottomLeft = [testSmall[18], testSmall[21], testSmall[24]];
 var bottomMiddle = [testSmall[19], testSmall[22], testSmall[25]];
 var bottomRight = [testSmall[20], testSmall[23], testSmall[26]];
 
+var allArr = [topRight, topMiddle, topLeft, leftMiddle, center, rightMiddle, bottomLeft, bottomMiddle, bottomRight];
+ var gridMatch = "";
+ for (var b = 0; b < allArr.length; b++) {
+   var testLine = allArr[b].slice().sort(function(a,b) {
+   return a - b;
+ });
+ if (testLine.join("") !== testArr.join("")) {
+   gridMatch = "NOT GOOD, the grid includes a number more that once";
+ }
+ }
 
+document.getElementById("test").innerHTML = allArr[0];
 //document.getElementById("test").innerHTML = bottomRight;
 
 ///////
