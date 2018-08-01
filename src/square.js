@@ -87,19 +87,17 @@ export function checkGrid() {
 //////
 
 export function checkVertNumb(){
-
   for (var b = 0; b < arr2.length; b++) {
     var testLine = arr2[b].slice().sort(function(a,b) {
       return a - b;
     });
 
     if (testLine.join("") !== testArr.join("")) {
-      document.getElementById("test2").innerHTML = "NOT GOOD, a column includes a number more that once";
+      //document.getElementById("test2").innerHTML = "NOT GOOD, a column includes a number more that once";
       return "NOT GOOD, a column includes a number more that once";
 
     }
   }
-
   return "GOOD no column includes a number more than once";
 }
 
@@ -109,7 +107,7 @@ export function checkVertArr() {
   for (var i = 0; i < arr2.length; i++) {
     for (var a = 0; a < arr2.length; a ++) {
       if (i !== a && arr2[i].join("") === arr2[a].join("")) {
-        document.getElementById("test3").innerHTML = "BAD, two column are the same";
+        //document.getElementById("test3").innerHTML = "BAD, two column are the same";
         return "BAD, two column are the same";
       }
     }
@@ -124,7 +122,7 @@ export function checkHorzNumb() {
       return a - b;
     });
     if (testLine.join("") !== testArr.join("")) {
-   document.getElementById("test1").innerHTML = "NOT GOOD, a row includes a number more that once";
+  // document.getElementById("test1").innerHTML = "NOT GOOD, a row includes a number more that once";
       return "NOT GOOD, a row includes a number more that once";
     }
   }
@@ -136,7 +134,7 @@ export function checkHorzArr() {
   for (var i = 0; i < arr.length; i++) {
     for (var a = 0; a < arr.length; a ++) {
       if (i !== a && arr[i].join("") === arr[a].join("")) {
-      document.getElementById("test").innerHTML = "BAD, two rows are the same";
+    //  document.getElementById("test").innerHTML = "BAD, two rows are the same";
       return "BAD, two rows are the same";
       }
       }
