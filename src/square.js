@@ -2,15 +2,17 @@ export class Square {
   constructor(arr) {
     this.arr = arr;
     this.testArr = [1,2,3,4,5,6,7,8,9];
-/////
-    this.getVertArr = function() {
+  }
+    /////
+    getVertArr() {
+      const newArr = this.arr.slice();
       const tempArr = [];
-      for (let i = 0; i < this.arr.length + 1; i++) {
-        for (let a = 0; a < this.arr[0].length + 1; a++) {
+      for (let i = 0; i < newArr.length + 1; i++) {
+        for (let a = 0; a < newArr[0].length + 1; a++) {
           if (a === 9) {
             tempArr.push(" ");
           } else {
-            tempArr.push(this.arr[a][i]);
+            tempArr.push(newArr[a][i]);
           }
         }
       }
@@ -22,77 +24,80 @@ export class Square {
       }
       return arr2;
     }
-/////
-    this.checkVertNumb = function() {
+    /////
+  checkVertNumb() {
       for (let b = 0; b < this.getVertArr().length; b++) {
         let testLine = this.getVertArr()[b].slice().sort(function(a,b) {
           return a - b;
         });
         if (testLine.join("") !== this.testArr.join("")) {
-          return "NOT GOOD, a column includes a number more that once";
+          return "NOT GOOD, a column includes a number more than once";
         }
       }
       return "GOOD no column includes a number more than once";
-  }
-/////
-    this.checkHorzNumb = function() {
-      const newArr = this.arr.slice();
+    }
+    /////
+    checkHorzNumb() {
+
+      let testArr1 = this.arr;
+      const newArr = testArr1.slice();
+      //return arr;
       for (let b = 0; b < newArr.length; b++) {
-        let testLine = newArr[b].sort(function(a,b) {
+        let testLine = newArr[b].slice().sort(function(a,b) {
+          return a - b;
+        });
+
+        if (testLine.join("") !== this.testArr.join("")) {
+          return "NOT GOOD, a row includes a number more than once";
+        }
+      }
+      return "GOOD, no row includes a number more than once";
+    }
+    /////
+  checkGrid() {
+      const newArr = this.arr.slice();
+      const tempArr2 = [];
+      for (let q = 0; q < newArr.length; q++) {
+        for (let y = 0; y < newArr.length; y++) {
+          if (y%3 === 0) {
+            tempArr2.push(" ");
+            tempArr2.push(newArr[q][y]);
+          } else {
+            tempArr2.push(newArr[q][y]);
+          }
+        }
+      }
+      const testSmall = tempArr2.join("").trim().split(" ");
+      const arr3 = [];
+
+      for (let r = 0; r < testSmall.length; r++) {
+        arr3.push(testSmall[r].split(""));
+      }
+      let topRight = arr3[0].concat(arr3[3], arr3[6]);
+      let topMiddle = arr3[1].concat(arr3[4], arr3[7]);
+      let topLeft = arr3[2].concat(arr3[5], arr3[8]);
+
+      let leftMiddle = arr3[9].concat(arr3[12], arr3[15]);
+      let center = arr3[10].concat(arr3[13], arr3[16]);
+      let rightMiddle = arr3[11].concat(arr3[14], arr3[17]);
+
+      let bottomLeft = arr3[18].concat(arr3[21], arr3[24]);
+      let bottomMiddle = arr3[19].concat(arr3[22], arr3[25]);
+      let bottomRight = arr3[20].concat(arr3[23], arr3[26]);
+
+      let allArr = [topRight, topMiddle, topLeft, leftMiddle, center, rightMiddle, bottomLeft, bottomMiddle, bottomRight];
+
+      for (let b = 0; b < allArr.length; b++) {
+        let testLine = allArr[b].slice().sort(function(a,b) {
           return a - b;
         });
         if (testLine.join("") !== this.testArr.join("")) {
-          return "NOT GOOD, a row includes a number more that once";
+          return "NOT GOOD, the grid includes a number more than once";
         }
       }
-      return "GOOD, no row includes a number more that once";
-    }
-/////
-  this.checkGrid = function() {
-const tempArr2 = [];
-for (let q = 0; q < this.arr.length; q++) {
-  for (let y = 0; y < this.arr[0].length; y++) {
-    if (y%3 === 0) {
-      tempArr2.push(" ");
-      tempArr2.push(this.arr[q][y]);
-    } else {
-      tempArr2.push(this.arr[q][y]);
-    }
-  }
+      return "GOOD, all grids includes 1 - 9";
+
 }
-const testSmall = tempArr2.join("").trim().split(" ");
-const arr3 = [];
-
-for (let r = 0; r < testSmall.length; r++) {
-  arr3.push(testSmall[r].split(""));
-}
-let topRight = arr3[0].concat(arr3[3], arr3[6]);
-let topMiddle = arr3[1].concat(arr3[4], arr3[7]);
-let topLeft = arr3[2].concat(arr3[5], arr3[8]);
-
-let leftMiddle = arr3[9].concat(arr3[12], arr3[15]);
-let center = arr3[10].concat(arr3[13], arr3[16]);
-let rightMiddle = arr3[11].concat(arr3[14], arr3[17]);
-
-let bottomLeft = arr3[18].concat(arr3[21], arr3[24]);
-let bottomMiddle = arr3[19].concat(arr3[22], arr3[25]);
-let bottomRight = arr3[20].concat(arr3[23], arr3[26]);
-////
-
-let allArr = [topRight, topMiddle, topLeft, leftMiddle, center, rightMiddle, bottomLeft, bottomMiddle, bottomRight];
-
-  for (let b = 0; b < allArr.length; b++) {
-    let testLine = allArr[b].slice().sort(function(a,b) {
-      return a - b;
-    });
-    if (testLine.join("") !== this.testArr.join("")) {
-     return "NOT GOOD, the grid includes a number more that once";
-    }
-  }
-  return "GOOD, all grids includes 1 - 9";
-}
-
-  }
 }
 // const arr = [[5,3,4,6,7,8,9,1,2],
 // [6,7,2,1,9,5,3,4,8],
