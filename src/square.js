@@ -77,15 +77,14 @@ export function checkGrid() {
     });
     if (testLine.join("") !== testArr.join("")) {
 
-      document.getElementById("test4").innerHTML = "NOT GOOD, the grid includes a number more that once";
-
+     return "NOT GOOD, the grid includes a number more that once";
     }
   }
+  return "GOOD, all grids includes 1 - 9";
 }
 
 
 //////
-
 export function checkVertNumb(){
   for (var b = 0; b < arr2.length; b++) {
     var testLine = arr2[b].slice().sort(function(a,b) {
