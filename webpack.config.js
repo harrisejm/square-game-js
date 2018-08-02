@@ -20,13 +20,13 @@ module.exports = {
     })
   ],
   plugins: [
-  new CleanWebpackPlugin(['dist']),   // new line
-  new HtmlWebpackPlugin({
-    title: 'square-game',
-    template: './src/index.html',
-    inject: 'body'
-  })
-],
+    new CleanWebpackPlugin(['dist']),   // new line
+    new HtmlWebpackPlugin({
+      title: 'square-game',
+      template: './src/index.html',
+      inject: 'body'
+    })
+  ],
   module: {
     rules: [
       {
@@ -43,6 +43,17 @@ module.exports = {
           /spec/
         ],
         loader: "eslint-loader"
+      },
+      {
+        test: /\.js$/,
+        exclude: [
+          /node_modules/,
+          /spec/
+        ],
+        loader: "babel-loader",
+        options: {
+          presets: ['es2015']
+        }
       }
     ]
   }
